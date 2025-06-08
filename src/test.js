@@ -1,1 +1,1 @@
-console.log("eslint 9 flat config test");
+console.log('eslint 9 flat config test');
