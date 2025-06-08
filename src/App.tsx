@@ -1,10 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:8000/test/api/hello/')
+      .then(response => response.json())
+      .then(data => setMessage(data.message));
+  }, []);
+
   return (
     <div className="App">
+      <p>{message}</p>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
