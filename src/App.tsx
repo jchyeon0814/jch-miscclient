@@ -1,7 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import styled from '@emotion/styled';
+
 import { useEffect, useState } from 'react';
+import { PageLayout } from '@components/templates/PageLayout';
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 2200px;
+  width: 100vw;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 1200px;
+  width: 100%;
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  background-color: #f0f0f0;
+`;
 
 function App() {
   const [message, setMessage] = useState('');
@@ -13,23 +43,11 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <p>{message}</p>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <PageLayout>
+        <Body>{message}</Body>
+      </PageLayout>
+    </AppContainer>
   );
 }
 
